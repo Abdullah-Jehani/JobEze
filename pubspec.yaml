@@ -38,6 +38,8 @@ dependencies:
   shared_preferences: ^2.2.1
   another_carousel_pro:
   provider:
+  http:
+
 
 dev_dependencies:
   flutter_test:
