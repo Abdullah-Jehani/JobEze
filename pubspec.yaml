@@ -39,6 +39,7 @@ dependencies:
   another_carousel_pro:
   provider:
   http:
+  google_nav_bar:
 
 
 dev_dependencies:

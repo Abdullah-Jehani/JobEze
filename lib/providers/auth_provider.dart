@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:async' show Future, Timer;
 import 'dart:convert';
+import 'package:job_eze/models/user_model.dart';
 
 class AuthProvider with ChangeNotifier {
   Api api = Api();
@@ -12,6 +13,7 @@ class AuthProvider with ChangeNotifier {
   String? token;
   bool isFirstTime = false;
   bool? isLoaading;
+  UserModel? userModel;
 
   setLoading(bool value) {
     Timer(const Duration(milliseconds: 5), () {
@@ -59,6 +61,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<List> login(Map userBody, BuildContext context) async {
+    setLoading(true);
     final response = await api.post(
         "https://api.ha-k.ly/api/v1/client/auth/login", userBody);
 
@@ -85,7 +88,16 @@ class AuthProvider with ChangeNotifier {
       if (kDebugMode) {
         print(" Response Body ${response.body}");
       }
+      setLoading(false);
       return [false, json.decode(response.body)['message']];
+    }
+  }
+
+  getUser() async {
+    final response = await api.get('https://api.ha-k.ly/api/v1/client/auth/me');
+    if (response.statusCode == 200) {
+      userModel = UserModel.fromJson(jsonDecode(response.body)['data']);
+      setLoading(false);
     }
   }
 
@@ -114,8 +126,15 @@ class AuthProvider with ChangeNotifier {
       if (kDebugMode) {
         print(" Response Body {$userBody}");
       }
+      setLoading(false);
       return [false, json.decode(response.body)['message']];
     }
+  }
+
+  Future<bool> logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+    return true;
   }
 
 //   Future<void> clearCache() async {
