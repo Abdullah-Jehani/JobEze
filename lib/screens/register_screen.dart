@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/providers/auth_provider.dart';
-import 'package:job_eze/screens/home_screen.dart';
+import 'package:job_eze/screens/tabs_screen.dart';
 import 'package:job_eze/screens/login_screen.dart';
 import 'package:job_eze/widgets/input_field.dart';
 import 'package:provider/provider.dart';
@@ -202,7 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           CupertinoPageRoute(
-                              builder: (context) => const HomeScreen()),
+                              builder: (context) => const TabsScreen()),
                           (route) => false);
                     } else {
                       SnackBar snackBar = SnackBar(content: value.last);

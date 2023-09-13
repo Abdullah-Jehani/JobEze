@@ -8,8 +8,9 @@ import 'dart:convert';
 import 'package:job_eze/models/user_model.dart';
 
 class AuthProvider with ChangeNotifier {
+  String test = 'Test';
   Api api = Api();
-  late bool isAuthenticated;
+  bool? isAuthenticated;
   String? token;
   bool isFirstTime = false;
   bool? isLoaading;

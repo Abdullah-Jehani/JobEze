@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
+import 'package:job_eze/providers/job_provider.dart';
 import 'package:job_eze/screens/get_started_screen.dart';
-import 'package:job_eze/screens/home_screen.dart';
+import 'package:job_eze/screens/tabs_screen.dart';
 import 'package:job_eze/screens/login_screen.dart';
 import 'package:job_eze/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => AuthProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(create: (context) => JobProvider())
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -48,7 +52,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(builder: (context, auth, _) {
-      return auth.isLoaading!
+      return auth.isLoaading! || auth.isAuthenticated == null
           ? const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
@@ -56,8 +60,8 @@ class _ScreenRouterState extends State<ScreenRouter> {
             )
           : auth.isFirstTime
               ? const GetStarted()
-              : auth.isAuthenticated
-                  ? const HomeScreen()
+              : auth.isAuthenticated!
+                  ? const TabsScreen()
                   : const LoginScreen();
     });
   }
