@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:job_eze/helpers/color_helper.dart';
-import 'package:job_eze/screens/job_lists_screen.dart';
+import 'package:job_eze/screens/Home/job_lists_screen.dart';
 
 class FieldCard extends StatefulWidget {
   const FieldCard({

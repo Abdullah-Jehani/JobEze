@@ -23,6 +23,7 @@ class _JobListScreenState extends State<JobListScreen> {
     return Consumer<JobProvider>(builder: (context, jobConsumer, child) {
       return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           title: const Text(
             'Job Lists',
             style: TextStyle(fontFamily: 'poppins', fontSize: 28),

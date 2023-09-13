@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/providers/job_provider.dart';
-import 'package:job_eze/screens/get_started_screen.dart';
-import 'package:job_eze/screens/tabs_screen.dart';
-import 'package:job_eze/screens/login_screen.dart';
-import 'package:job_eze/screens/splash_screen.dart';
+import 'package:job_eze/screens/secondary/get_started_screen.dart';
+import 'package:job_eze/screens/secondary/tabs_screen.dart';
+import 'package:job_eze/screens/auth/login_screen.dart';
+import 'package:job_eze/screens/auth/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -45,6 +45,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
   void initState() {
     Provider.of<AuthProvider>(context, listen: false).checkFirstTime();
     Provider.of<AuthProvider>(context, listen: false).initAuthentication();
+    Provider.of<JobProvider>(context, listen: false).fetchJobs();
 
     super.initState();
   }

@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/widgets/custom_button.dart';
 import 'package:job_eze/models/job_model.dart';
-import '../screens/detailed_job_screen.dart';
+import '../screens/Home/detailed_job_screen.dart';
 
 class CustomJobWidget extends StatefulWidget {
   const CustomJobWidget({
     super.key,
     required this.jobModel,
   });
-
   final JobModel jobModel;
 
   @override
@@ -47,7 +46,11 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                   Text(
                     maxLines: 1,
                     textAlign: TextAlign.center,
-                    widget.jobModel.companyName,
+                    widget.jobModel.companyName.substring(
+                        0,
+                        widget.jobModel.companyName.length > 30
+                            ? 29
+                            : widget.jobModel.companyName.length),
                     style: TextStyle(
                         fontFamily: 'poppins',
                         color: mainFont,
@@ -65,7 +68,7 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                     ),
                   ),
                   Image.asset(
-                    'assets/images/Screenshot_2023-09-10_204443-removebg-preview.png',
+                    'assets/images/download__1_-removebg-preview (2).png',
                     height: 200,
                   ),
                   const SizedBox(

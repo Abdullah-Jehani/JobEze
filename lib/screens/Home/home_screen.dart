@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../helpers/color_helper.dart';
-import '../widgets/field_card.dart';
+import '../../helpers/color_helper.dart';
+import '../../widgets/field_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

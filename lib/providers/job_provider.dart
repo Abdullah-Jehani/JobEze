@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class JobProvider with ChangeNotifier {
+  JobModel? jobModel;
   List<JobModel> jobs = [];
 
   bool isLoading = true;
@@ -30,11 +31,9 @@ class JobProvider with ChangeNotifier {
           "Authorization": "Bearer ${prefs.getString("token")}"
         });
     if (response.statusCode == 200) {
+      setLoading(false);
       var decodedData = json.decode(response.body)['data'];
       for (var x in decodedData) {
-        // List<String> trimmed = decodedData['location'].split(',');
-        // String extracted = trimmed[1].trim();
-        // decodedData['location'] = extracted;
         jobs.add(JobModel.fromJson(x));
       }
     }

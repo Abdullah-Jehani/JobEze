@@ -2,7 +2,7 @@ import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
-import 'package:job_eze/screens/login_screen.dart';
+import 'package:job_eze/screens/auth/login_screen.dart';
 import 'package:provider/provider.dart';
 
 class GetStarted extends StatefulWidget {
