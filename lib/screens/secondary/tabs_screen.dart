@@ -22,11 +22,11 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       body: tabs[cureentIndex],
       bottomNavigationBar: Container(
-        color: lightPurbleColor,
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: GNav(
-            backgroundColor: lightPurbleColor,
+            backgroundColor: Colors.white,
             color: mainFont,
             activeColor: Colors.white,
             tabBackgroundColor: purpleColor,
@@ -38,7 +38,7 @@ class _TabsScreenState extends State<TabsScreen> {
               // Navigator.push(context,
               //     CupertinoPageRoute(builder: (context) => tabs[index]));
             },
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             tabs: [
               GButton(
                 active: true,

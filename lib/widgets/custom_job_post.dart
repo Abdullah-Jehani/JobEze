@@ -35,7 +35,7 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                       color: Colors.white,
                       border: Border.all(color: const Color(0xFFDDDEE3)),
                       borderRadius:
-                          const BorderRadius.all(Radius.circular(15))),
+                          const BorderRadius.all(Radius.circular(16))),
                 ),
               ),
               Column(
@@ -43,22 +43,66 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                    widget.jobModel.companyName.substring(
-                        0,
-                        widget.jobModel.companyName.length > 30
-                            ? 29
-                            : widget.jobModel.companyName.length),
-                    style: TextStyle(
-                        fontFamily: 'poppins',
-                        color: mainFont,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: [
+                        Text(
+                          'company name',
+                          style: TextStyle(
+                              color: secondaryFont,
+                              fontFamily: 'poppins',
+                              fontSize: 14),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          maxLines: 1,
+                          widget.jobModel.companyName.substring(
+                              0,
+                              widget.jobModel.companyName.length > 19
+                                  ? 20
+                                  : widget.jobModel.companyName.length),
+                          style: TextStyle(
+                              fontFamily: 'poppins',
+                              color: mainFont,
+                              fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Job title',
+                          style: TextStyle(
+                              color: secondaryFont,
+                              fontFamily: 'poppins',
+                              fontSize: 14),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          maxLines: 1,
+                          widget.jobModel.title.substring(
+                              0,
+                              widget.jobModel.companyName.length > 15
+                                  ? 15
+                                  : widget.jobModel.companyName.length),
+                          style: TextStyle(
+                              fontFamily: 'poppins',
+                              color: mainFont,
+                              fontSize: 16),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -68,7 +112,7 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                     ),
                   ),
                   Image.asset(
-                    'assets/images/download__1_-removebg-preview (2).png',
+                    'assets/images/download__3_-removebg-preview.png',
                     height: 200,
                   ),
                   const SizedBox(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/providers/job_provider.dart';
 
 import 'package:job_eze/widgets/custom_job_post.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 
 class JobListScreen extends StatefulWidget {
   const JobListScreen({super.key});
@@ -26,7 +28,10 @@ class _JobListScreenState extends State<JobListScreen> {
           elevation: 0,
           title: const Text(
             'Job Lists',
-            style: TextStyle(fontFamily: 'poppins', fontSize: 28),
+            style: TextStyle(
+                fontFamily: 'poppins',
+                fontSize: 28,
+                fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
         ),
@@ -40,7 +45,30 @@ class _JobListScreenState extends State<JobListScreen> {
             ),
             itemCount: jobConsumer.jobs.length,
             itemBuilder: (context, index) {
-              return CustomJobWidget(jobModel: jobConsumer.jobs[index]);
+              return jobConsumer.isLoading
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: purpleColor.withOpacity(0.2),
+                            border:
+                                Border.all(color: mainFont.withOpacity(0.3)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16))),
+                        child: SizedBox(
+                          child: Shimmer.fromColors(
+                              baseColor: purpleColor.withOpacity(0.2),
+                              highlightColor: Colors.white,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.2),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(16))),
+                              )),
+                        ),
+                      ),
+                    )
+                  : CustomJobWidget(jobModel: jobConsumer.jobs[index]);
             },
           ),
         ),

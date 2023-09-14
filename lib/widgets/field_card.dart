@@ -71,7 +71,7 @@ class _FieldCardState extends State<FieldCard> {
                       ),
                       Flexible(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 10, right: 90),
                           child: Text(
                             widget.subTitle,
                             maxLines: 3,

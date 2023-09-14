@@ -206,7 +206,7 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                       ],
                     ),
                     const SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
                     SingleChildScrollView(
                       child: Row(
@@ -214,10 +214,11 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           Flexible(
                             child: Text(
                               'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.',
-                              maxLines: 5,
+                              maxLines: 6,
                               style: TextStyle(
                                   fontFamily: 'poppins',
                                   fontSize: 14,
+                                  fontWeight: FontWeight.bold,
                                   color: secondaryFont),
                             ),
                           )
@@ -225,7 +226,7 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
                     TextButton(
                         style: ButtonStyle(

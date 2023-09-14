@@ -41,7 +41,7 @@ dependencies:
   http:
   google_nav_bar:
   iconify_flutter:
-
+  shimmer:
 
 dev_dependencies:
   flutter_test:
