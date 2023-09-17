@@ -1,20 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/icons/arcticons.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/game_icons.dart';
+import 'package:iconify_flutter/icons/healthicons.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/pajamas.dart';
 import 'package:job_eze/helpers/color_helper.dart';
+import 'package:job_eze/models/job_model.dart';
 import 'package:job_eze/providers/job_provider.dart';
-// import 'package:job_eze/widgets/custom_detail_job_widget.dart';
 import 'package:job_eze/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 
 // for
 
 class DetailedJobScreen extends StatefulWidget {
-  const DetailedJobScreen({super.key});
+  const DetailedJobScreen({super.key, required this.jobModel});
+  final JobModel jobModel;
 
   @override
   State<DetailedJobScreen> createState() => _DetailedJobScreenState();
@@ -64,7 +68,12 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
               Padding(
                 padding: const EdgeInsets.only(right: 5),
                 child: Text(
-                  'Medical Lab Company',
+                  maxLines: 1,
+                  widget.jobModel.companyName.substring(
+                      0,
+                      widget.jobModel.companyName.length > 19
+                          ? 20
+                          : widget.jobModel.companyName.length),
                   style: TextStyle(
                       fontFamily: 'poppins',
                       color: mainFont,
@@ -90,7 +99,11 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           width: 25,
                         ),
                         Text(
-                          'benghazi , Dubai.st',
+                          widget.jobModel.location.substring(
+                              0,
+                              widget.jobModel.location.length > 19
+                                  ? 20
+                                  : widget.jobModel.location.length),
                           style: TextStyle(
                               fontFamily: 'poppins',
                               fontSize: 16,
@@ -113,7 +126,11 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           width: 25,
                         ),
                         Text(
-                          'UI/UX Designer',
+                          widget.jobModel.title.substring(
+                              0,
+                              widget.jobModel.title.length >= 22
+                                  ? 23
+                                  : widget.jobModel.title.length),
                           style: TextStyle(
                               fontFamily: 'poppins',
                               fontSize: 16,
@@ -174,7 +191,9 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                     Row(
                       children: [
                         Iconify(
-                          Arcticons.remote_mouse,
+                          widget.jobModel.remote
+                              ? Arcticons.remote_mouse
+                              : Healthicons.city,
                           size: 30,
                           color: mainFont,
                         ),
@@ -182,12 +201,13 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           width: 25,
                         ),
                         Text(
-                          'Remotely',
+                          widget.jobModel.remote ? 'Remotely' : 'In-Place Job',
                           style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: secondaryFont),
+                            fontFamily: 'poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: mainFont,
+                          ),
                         )
                       ],
                     ),
@@ -206,14 +226,16 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 15,
                     ),
                     SingleChildScrollView(
                       child: Row(
                         children: [
                           Flexible(
                             child: Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.',
+                              widget.jobModel.description
+                                  .replaceAll('</p>', ' ')
+                                  .replaceAll('<p>', ''),
                               maxLines: 6,
                               style: TextStyle(
                                   fontFamily: 'poppins',
@@ -229,20 +251,28 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                       height: 30,
                     ),
                     TextButton(
-                        style: ButtonStyle(
-                            padding: const MaterialStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                    horizontal: 90, vertical: 10)),
-                            backgroundColor:
-                                MaterialStatePropertyAll(mainFont)),
-                        onPressed: () {},
-                        child: const Text(
-                          'Apply For Job ',
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 20,
-                              color: Colors.white),
-                        ))
+                      style: ButtonStyle(
+                          padding: const MaterialStatePropertyAll(
+                              EdgeInsets.symmetric(
+                                  horizontal: 90, vertical: 10)),
+                          backgroundColor: MaterialStatePropertyAll(mainFont)),
+                      child: const Text(
+                        'Apply For Job ',
+                        style: TextStyle(
+                            fontFamily: 'poppins',
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                      onPressed: () async {
+                        launcher.launchUrl(
+                          Uri.parse(widget.jobModel.url.toString()),
+                          mode: launcher.LaunchMode.externalApplication,
+                        );
+                        if (kDebugMode) {
+                          print(' STATUS : clicked');
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),

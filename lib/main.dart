@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/providers/job_provider.dart';
+import 'package:job_eze/providers/user_detail_provider.dart';
 import 'package:job_eze/screens/secondary/get_started_screen.dart';
 import 'package:job_eze/screens/secondary/tabs_screen.dart';
 import 'package:job_eze/screens/auth/login_screen.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
-        ChangeNotifierProvider(create: (context) => JobProvider())
+        ChangeNotifierProvider(create: (context) => JobProvider()),
+        ChangeNotifierProvider(create: (context) => UserDetailProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -53,7 +55,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(builder: (context, auth, _) {
-      return auth.isLoaading! || auth.isAuthenticated == null
+      return auth.isLoaading == null
           ? const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),

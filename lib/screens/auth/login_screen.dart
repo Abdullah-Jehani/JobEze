@@ -120,6 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             "device_name": "iphone"
                           }, context).then((value) {
                             if (value.first) {
+                              passwordController.clear();
+
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(

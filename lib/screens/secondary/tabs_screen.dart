@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
 import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/screens/secondary/profile_screen.dart';
 import 'package:job_eze/screens/secondary/settings_screen.dart';
@@ -24,13 +25,11 @@ class _TabsScreenState extends State<TabsScreen> {
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
           child: GNav(
             backgroundColor: Colors.white,
             color: mainFont,
-            activeColor: Colors.white,
-            tabBackgroundColor: purpleColor,
-            gap: 8,
+            activeColor: mainFont,
             onTabChange: (index) {
               setState(() {
                 cureentIndex = index;
@@ -38,24 +37,20 @@ class _TabsScreenState extends State<TabsScreen> {
               // Navigator.push(context,
               //     CupertinoPageRoute(builder: (context) => tabs[index]));
             },
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             tabs: [
               GButton(
-                active: true,
-                icon: Icons.home,
-                text: 'Home',
-                iconSize: 24,
+                icon: Icons.home_outlined,
+                iconSize: 28,
                 iconColor: mainFont,
               ),
               GButton(
-                icon: Icons.person,
-                text: 'Profile',
-                iconSize: 24,
+                icon: Icons.person_outline_outlined,
+                iconSize: 28,
                 iconColor: mainFont,
               ),
               GButton(
                 icon: Icons.settings,
-                text: 'Settings',
                 iconColor: mainFont,
                 iconSize: 24,
               ),

@@ -135,6 +135,7 @@ class AuthProvider with ChangeNotifier {
   Future<bool> logout() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
+    setFirstTime(false);
     return true;
   }
 
