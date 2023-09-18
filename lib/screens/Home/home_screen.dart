@@ -243,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: 'Engennering',
                           subTitle:
                               'Engineers use their expertise to solve real-world problems',
-                          image: 'assets/images/Construction-rafiki.png',
+                          image: 'assets/images/Robot arm-cuate.png',
                           height: 165,
                           width: 160,
                           buttom: -30,

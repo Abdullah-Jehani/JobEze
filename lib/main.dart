@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/providers/job_provider.dart';
+import 'package:job_eze/providers/theme_provider.dart';
 import 'package:job_eze/providers/user_detail_provider.dart';
 import 'package:job_eze/screens/secondary/get_started_screen.dart';
 import 'package:job_eze/screens/secondary/tabs_screen.dart';
@@ -21,16 +22,22 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => JobProvider()),
-        ChangeNotifierProvider(create: (context) => UserDetailProvider())
+        ChangeNotifierProvider(create: (context) => UserDetailProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider())
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
-        home: const SplashScreen(),
-      ),
+      child: Consumer<ThemeProvider>(builder: (context, themeConsumer, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark().copyWith(
+              textTheme: ThemeData.dark()
+                  .textTheme
+                  .apply(bodyColor: Colors.white, displayColor: Colors.white)),
+          themeMode: themeConsumer.themeMode,
+          home: const SplashScreen(),
+        );
+      }),
     );
   }
 }
@@ -48,7 +55,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
     Provider.of<AuthProvider>(context, listen: false).checkFirstTime();
     Provider.of<AuthProvider>(context, listen: false).initAuthentication();
     Provider.of<JobProvider>(context, listen: false).fetchJobs();
-
+    Provider.of<ThemeProvider>(context, listen: false).initialize();
     super.initState();
   }
 

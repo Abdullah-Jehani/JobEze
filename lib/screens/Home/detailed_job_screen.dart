@@ -59,224 +59,229 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
           //       return CustomDetail(jobModel: jobConsumer.jobs[index]);
           //     }),
 
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: Text(
-                  maxLines: 1,
-                  widget.jobModel.companyName.substring(
-                      0,
-                      widget.jobModel.companyName.length > 19
-                          ? 20
-                          : widget.jobModel.companyName.length),
-                  style: TextStyle(
-                      fontFamily: 'poppins',
-                      color: mainFont,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Iconify(
-                          Pajamas.location,
-                          size: 30,
-                          color: greenColor,
-                        ),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          widget.jobModel.location.substring(
-                              0,
-                              widget.jobModel.location.length > 19
-                                  ? 20
-                                  : widget.jobModel.location.length),
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: secondaryFont),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        Iconify(
-                          Bi.person_workspace,
-                          color: mainFont,
-                          size: 30,
-                        ),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          widget.jobModel.title.substring(
-                              0,
-                              widget.jobModel.title.length >= 22
-                                  ? 23
-                                  : widget.jobModel.title.length),
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: secondaryFont),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        Iconify(
-                          Heroicons.calendar_days_20_solid,
-                          size: 30,
-                          color: mainFont,
-                        ),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          '2-3 years experience',
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: secondaryFont),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        Iconify(
-                          GameIcons.money_stack,
-                          color: greenColor,
-                          size: 30,
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          '100K - 150K',
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: secondaryFont),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      children: [
-                        Iconify(
-                          widget.jobModel.remote
-                              ? Arcticons.remote_mouse
-                              : Healthicons.city,
-                          size: 30,
-                          color: mainFont,
-                        ),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          widget.jobModel.remote ? 'Remotely' : 'In-Place Job',
-                          style: TextStyle(
-                            fontFamily: 'poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Text(
+                    maxLines: 1,
+                    widget.jobModel.companyName.substring(
+                        0,
+                        widget.jobModel.companyName.length > 19
+                            ? 20
+                            : widget.jobModel.companyName.length),
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        color: mainFont,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Iconify(
+                            Pajamas.location,
+                            size: 30,
+                            color: greenColor,
+                          ),
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            widget.jobModel.location.substring(
+                                0,
+                                widget.jobModel.location.length > 19
+                                    ? 20
+                                    : widget.jobModel.location.length),
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: secondaryFont),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: [
+                          Iconify(
+                            Bi.person_workspace,
+                            color: mainFont,
+                            size: 30,
+                          ),
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            widget.jobModel.title.substring(
+                                0,
+                                widget.jobModel.title.length >= 22
+                                    ? 23
+                                    : widget.jobModel.title.length),
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: secondaryFont),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: [
+                          Iconify(
+                            Heroicons.calendar_days_20_solid,
+                            size: 30,
                             color: mainFont,
                           ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Description',
-                          style: TextStyle(
-                              fontFamily: 'poppins',
-                              fontSize: 22,
-                              color: mainFont),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    SingleChildScrollView(
-                      child: Row(
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            '2-3 years experience',
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: secondaryFont),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
                         children: [
-                          Flexible(
-                            child: Text(
-                              widget.jobModel.description
-                                  .replaceAll('</p>', ' ')
-                                  .replaceAll('<p>', ''),
-                              maxLines: 6,
-                              style: TextStyle(
-                                  fontFamily: 'poppins',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: secondaryFont),
+                          Iconify(
+                            GameIcons.money_stack,
+                            color: greenColor,
+                            size: 30,
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            '100K - 150K',
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: secondaryFont),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: [
+                          Iconify(
+                            widget.jobModel.remote
+                                ? Arcticons.remote_mouse
+                                : Healthicons.city,
+                            size: 30,
+                            color: mainFont,
+                          ),
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            widget.jobModel.remote
+                                ? 'Remotely'
+                                : 'In-Place Job',
+                            style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: mainFont,
                             ),
                           )
                         ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    TextButton(
-                      style: ButtonStyle(
-                          padding: const MaterialStatePropertyAll(
-                              EdgeInsets.symmetric(
-                                  horizontal: 90, vertical: 10)),
-                          backgroundColor: MaterialStatePropertyAll(mainFont)),
-                      child: const Text(
-                        'Apply For Job ',
-                        style: TextStyle(
-                            fontFamily: 'poppins',
-                            fontSize: 20,
-                            color: Colors.white),
+                      const SizedBox(
+                        height: 40,
                       ),
-                      onPressed: () async {
-                        launcher.launchUrl(
-                          Uri.parse(widget.jobModel.url.toString()),
-                          mode: launcher.LaunchMode.externalApplication,
-                        );
-                        if (kDebugMode) {
-                          print(' STATUS : clicked');
-                        }
-                      },
-                    ),
-                  ],
+                      Row(
+                        children: [
+                          Text(
+                            'Description',
+                            style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 22,
+                                color: mainFont),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SingleChildScrollView(
+                        child: Row(
+                          children: [
+                            Flexible(
+                              child: Text(
+                                widget.jobModel.description
+                                    .replaceAll('</p>', ' ')
+                                    .replaceAll('<p>', ''),
+                                maxLines: 6,
+                                style: TextStyle(
+                                    fontFamily: 'poppins',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: secondaryFont),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                            padding: const MaterialStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                    horizontal: 90, vertical: 10)),
+                            backgroundColor:
+                                MaterialStatePropertyAll(mainFont)),
+                        child: const Text(
+                          'Apply For Job ',
+                          style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontSize: 20,
+                              color: Colors.white),
+                        ),
+                        onPressed: () async {
+                          launcher.launchUrl(
+                            Uri.parse(widget.jobModel.url.toString()),
+                            mode: launcher.LaunchMode.externalApplication,
+                          );
+                          if (kDebugMode) {
+                            print(' STATUS : clicked');
+                          }
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ));
     });
   }

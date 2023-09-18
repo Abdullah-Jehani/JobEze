@@ -11,6 +11,7 @@ import 'package:iconify_flutter/icons/radix_icons.dart';
 import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/main.dart';
 import 'package:job_eze/providers/auth_provider.dart';
+import 'package:job_eze/providers/theme_provider.dart';
 import 'package:job_eze/screens/secondary/profile_screen.dart';
 import 'package:job_eze/widgets/custom_settings.dart';
 import 'package:provider/provider.dart';
@@ -171,14 +172,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(
                   width: 135,
                 ),
-                Switch(
-                  value: light,
-                  onChanged: (bool value) {
-                    setState(() {
-                      light = value;
-                    });
-                  },
-                ),
+                Consumer<ThemeProvider>(
+                    builder: (context, themeProvider, child) {
+                  return Switch(
+                    value: themeProvider.currentTheme,
+                    onChanged: (bool value) {
+                      themeProvider.changeTheme(value);
+                    },
+                  );
+                }),
               ],
             ),
           ),

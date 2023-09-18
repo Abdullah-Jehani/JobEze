@@ -35,41 +35,43 @@ class _JobListScreenState extends State<JobListScreen> {
           ),
           centerTitle: true,
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              crossAxisSpacing: 0,
-              mainAxisSpacing: 10,
-            ),
-            itemCount: jobConsumer.jobs.length,
-            itemBuilder: (context, index) {
-              return jobConsumer.isLoading
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: purpleColor.withOpacity(0.2),
-                            border:
-                                Border.all(color: mainFont.withOpacity(0.3)),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(16))),
-                        child: SizedBox(
-                          child: Shimmer.fromColors(
-                              baseColor: purpleColor.withOpacity(0.2),
-                              highlightColor: Colors.white,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(0.2),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(16))),
-                              )),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                crossAxisSpacing: 0,
+                mainAxisSpacing: 10,
+              ),
+              itemCount: jobConsumer.jobs.length,
+              itemBuilder: (context, index) {
+                return jobConsumer.isLoading
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: purpleColor.withOpacity(0.2),
+                              border:
+                                  Border.all(color: mainFont.withOpacity(0.3)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(16))),
+                          child: SizedBox(
+                            child: Shimmer.fromColors(
+                                baseColor: purpleColor.withOpacity(0.2),
+                                highlightColor: Colors.white,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.2),
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(16))),
+                                )),
+                          ),
                         ),
-                      ),
-                    )
-                  : CustomJobWidget(jobModel: jobConsumer.jobs[index]);
-            },
+                      )
+                    : CustomJobWidget(jobModel: jobConsumer.jobs[index]);
+              },
+            ),
           ),
         ),
       );
