@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "990399553070",
+    "project_id": "jobeze-project",
+    "storage_bucket": "jobeze-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990399553070:android:9a8690f1740fae8145c9bf",
+        "android_client_info": {
+          "package_name": "com.example.job_eze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHsnd2PuxPsCwlAvK4TMGGpHmM376zqwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,9 +8,15 @@ import 'package:job_eze/screens/secondary/tabs_screen.dart';
 import 'package:job_eze/screens/auth/login_screen.dart';
 import 'package:job_eze/screens/auth/splash_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +35,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData.light(),
+          theme: ThemeData.light(useMaterial3: true),
           darkTheme: ThemeData.dark().copyWith(
               textTheme: ThemeData.dark()
                   .textTheme
