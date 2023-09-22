@@ -44,7 +44,7 @@ dependencies:
   shimmer:
   url_launcher:
   cloud_firestore:
-  firebase_core: ^2.16.0
+  firebase_core:
 dev_dependencies:
   flutter_test:
     sdk: flutter

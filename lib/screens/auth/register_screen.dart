@@ -42,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 90,
+                height: 80,
               ),
               const Text(
                 'LOGO',

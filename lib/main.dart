@@ -35,11 +35,14 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData.light(useMaterial3: true),
-          darkTheme: ThemeData.dark().copyWith(
-              textTheme: ThemeData.dark()
-                  .textTheme
-                  .apply(bodyColor: Colors.white, displayColor: Colors.white)),
+          theme: ThemeData.light(
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(
+              useMaterial3: true,
+              colorScheme: const ColorScheme.dark(),
+              textTheme:
+                  const TextTheme(bodyLarge: TextStyle(color: Colors.white))),
           themeMode: themeConsumer.themeMode,
           home: const SplashScreen(),
         );
@@ -58,10 +61,11 @@ class ScreenRouter extends StatefulWidget {
 class _ScreenRouterState extends State<ScreenRouter> {
   @override
   void initState() {
+    Provider.of<ThemeProvider>(context, listen: false).initialize();
+
     Provider.of<AuthProvider>(context, listen: false).checkFirstTime();
     Provider.of<AuthProvider>(context, listen: false).initAuthentication();
     Provider.of<JobProvider>(context, listen: false).fetchJobs();
-    Provider.of<ThemeProvider>(context, listen: false).initialize();
     super.initState();
   }
 

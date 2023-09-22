@@ -75,6 +75,7 @@ class AuthProvider with ChangeNotifier {
         print(" Response Status${response.statusCode}");
         print(" isFirstTime ? : $isFirstTime");
         print(" Token Status : $token");
+        print(" Token : $decodedToken");
       }
       if (kDebugMode) {
         print(" Response Body ${response.body}");
