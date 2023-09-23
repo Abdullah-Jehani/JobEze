@@ -74,20 +74,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(15)),
                             child: const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10),
-                              // child: TextField(
-                              //   autofocus: false,
-                              //   decoration: InputDecoration(
-                              //     border: const OutlineInputBorder(
-                              //       borderSide: BorderSide.none,
-                              //     ),
-                              //     hintText: 'Search By Job, Field, and Title',
-                              //     hintStyle: TextStyle(
-                              //         color: secondaryFont,
-                              //         fontFamily: 'poppins',
-                              //         fontSize: 14),
-                              //     suffixIcon: const Icon(Icons.search, size: 32),
-                              //   ),
-                              // ),
                             ),
                           ),
                         ),

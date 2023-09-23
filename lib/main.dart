@@ -16,7 +16,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -66,6 +66,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
     Provider.of<AuthProvider>(context, listen: false).checkFirstTime();
     Provider.of<AuthProvider>(context, listen: false).initAuthentication();
     Provider.of<JobProvider>(context, listen: false).fetchJobs();
+    Provider.of<AuthProvider>(context, listen: false).getUser();
     super.initState();
   }
 

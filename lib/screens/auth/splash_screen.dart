@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,8 +25,15 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xffFDE40B),
+        decoration: BoxDecoration(
+          color: mainFont,
+        ),
+        child: Center(
+          child: Image.asset(
+            'assets/images/Screenshot_2023-09-23_195743-removebg-preview.png',
+            height: 200,
+            width: 200,
+          ),
         ),
       ),
     );

@@ -91,15 +91,21 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                           ),
                           Text(
                             maxLines: 1,
-                            widget.jobModel.title.substring(
-                                0,
-                                widget.jobModel.companyName.length > 15
-                                    ? 15
-                                    : widget.jobModel.companyName.length),
+                            widget.jobModel.title
+                                .substring(
+                                    0,
+                                    widget.jobModel.title.length > 20
+                                        ? 21
+                                        : widget.jobModel.title.length)
+                                .replaceAll('(', '')
+                                .replaceAll(')', '')
+                                .replaceAll('/', '')
+                                .replaceAll('*', '')
+                                .replaceAll('-', ''),
                             style: TextStyle(
                                 fontFamily: 'poppins',
                                 color: mainFont,
-                                fontSize: 16),
+                                fontSize: 15),
                           ),
                         ],
                       ),
