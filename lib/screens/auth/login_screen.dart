@@ -122,6 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }, context).then((value) {
                               if (value.first) {
                                 passwordController.clear();
+                                emailController.clear();
 
                                 Navigator.push(
                                   context,

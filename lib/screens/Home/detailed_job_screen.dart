@@ -38,13 +38,12 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
       return Consumer<ThemeProvider>(builder: (context, themeConsumer, child) {
         return Scaffold(
             appBar: AppBar(
-              toolbarHeight: 80,
-              title: Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Image.asset(
-                  'assets/images/download__3_-removebg-preview.png',
-                  width: 180,
-                ),
+              title: const Text(
+                'Details',
+                style: TextStyle(
+                    fontFamily: 'poppins',
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
               ),
               centerTitle: true,
               actions: [
@@ -67,7 +66,16 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
-                    height: 10,
+                    height: 12,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.asset(
+                      'assets/images/images.jpeg',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 5),
@@ -82,13 +90,13 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           fontFamily: 'poppins',
                           color: themeConsumer.currentTheme
                               ? Colors.white
-                              : mainFont,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold),
+                              : Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -98,10 +106,10 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           children: [
                             Iconify(
                               Pajamas.location,
-                              size: 30,
+                              size: 20,
                               color: themeConsumer.currentTheme
                                   ? purpleColor
-                                  : greenColor,
+                                  : mainFont,
                             ),
                             const SizedBox(
                               width: 25,
@@ -112,11 +120,10 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                                   widget.jobModel.location.length > 19
                                       ? 20
                                       : widget.jobModel.location.length),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: secondaryFont),
+                                  fontSize: 14,
+                                  color: Color(0xFF808080)),
                             )
                           ],
                         ),
@@ -129,8 +136,8 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                               Bi.person_workspace,
                               color: themeConsumer.currentTheme
                                   ? purpleColor
-                                  : greenColor,
-                              size: 30,
+                                  : mainFont,
+                              size: 18,
                             ),
                             const SizedBox(
                               width: 25,
@@ -141,11 +148,10 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                                   widget.jobModel.title.length >= 22
                                       ? 23
                                       : widget.jobModel.title.length),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: secondaryFont),
+                                  fontSize: 14,
+                                  color: Color(0xFF808080)),
                             )
                           ],
                         ),
@@ -156,21 +162,20 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           children: [
                             Iconify(
                               Heroicons.calendar_days_20_solid,
-                              size: 30,
+                              size: 20,
                               color: themeConsumer.currentTheme
                                   ? purpleColor
-                                  : greenColor,
+                                  : mainFont,
                             ),
                             const SizedBox(
                               width: 25,
                             ),
-                            Text(
+                            const Text(
                               '2-3 years experience',
                               style: TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: secondaryFont),
+                                  fontSize: 14,
+                                  color: Color(0xFF808080)),
                             )
                           ],
                         ),
@@ -184,18 +189,17 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                               color: themeConsumer.currentTheme
                                   ? purpleColor
                                   : greenColor,
-                              size: 30,
+                              size: 20,
                             ),
                             const SizedBox(
                               width: 20,
                             ),
-                            Text(
+                            const Text(
                               '100K - 150K',
                               style: TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: secondaryFont),
+                                  fontSize: 14,
+                                  color: Color(0xFF808080)),
                             )
                           ],
                         ),
@@ -208,10 +212,10 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                               widget.jobModel.remote
                                   ? Arcticons.remote_mouse
                                   : Healthicons.city,
-                              size: 30,
+                              size: 20,
                               color: themeConsumer.currentTheme
                                   ? purpleColor
-                                  : greenColor,
+                                  : mainFont,
                             ),
                             const SizedBox(
                               width: 25,
@@ -220,28 +224,27 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                               widget.jobModel.remote
                                   ? 'Remotely'
                                   : 'In-Place Job',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: secondaryFont,
+                                fontSize: 14,
+                                color: Color(0xFF808080),
                               ),
                             )
                           ],
                         ),
                         const SizedBox(
-                          height: 40,
+                          height: 35,
                         ),
                         Row(
                           children: [
                             Text(
-                              'Description',
+                              'About Job',
                               style: TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 22,
+                                  fontSize: 18,
                                   color: themeConsumer.currentTheme
                                       ? purpleColor
-                                      : mainFont),
+                                      : Colors.black),
                             )
                           ],
                         ),
@@ -273,11 +276,10 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                                       .replaceAll('<', '')
                                       .replaceAll('href=', ''),
                                   maxLines: 6,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontFamily: 'poppins',
                                       fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: secondaryFont),
+                                      color: Color(0xFF808080)),
                                 ),
                               )
                             ],
@@ -290,11 +292,12 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
                           style: ButtonStyle(
                               padding: const MaterialStatePropertyAll(
                                   EdgeInsets.symmetric(
-                                      horizontal: 90, vertical: 10)),
+                                      horizontal: 90, vertical: 8)),
                               backgroundColor: themeConsumer.currentTheme
                                   ? const MaterialStatePropertyAll(
                                       Color(0xFFFF735C))
-                                  : MaterialStatePropertyAll(mainFont)),
+                                  : const MaterialStatePropertyAll(
+                                      Color(0xFFF87080))),
                           child: const Text(
                             'Apply For Job ',
                             style: TextStyle(
