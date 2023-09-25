@@ -22,6 +22,7 @@ class _JobListScreenState extends State<JobListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Consumer<JobProvider>(builder: (context, jobConsumer, child) {
       return Scaffold(
         appBar: AppBar(
@@ -39,15 +40,14 @@ class _JobListScreenState extends State<JobListScreen> {
           padding: const EdgeInsets.only(top: 10),
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              crossAxisSpacing: 0,
-              mainAxisSpacing: 10,
-            ),
+                crossAxisCount: 1,
+                mainAxisSpacing: 20,
+                childAspectRatio: 1 / .3),
             itemCount: jobConsumer.jobs.length,
             itemBuilder: (context, index) {
               return jobConsumer.isLoading
                   ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Container(
                         decoration: BoxDecoration(
                             color: purpleColor.withOpacity(0.2),
@@ -60,10 +60,11 @@ class _JobListScreenState extends State<JobListScreen> {
                               baseColor: purpleColor.withOpacity(0.2),
                               highlightColor: Colors.white,
                               child: Container(
+                                width: size.width * .9,
                                 decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(0.2),
                                     borderRadius: const BorderRadius.all(
-                                        Radius.circular(16))),
+                                        Radius.circular(12))),
                               )),
                         ),
                       ),

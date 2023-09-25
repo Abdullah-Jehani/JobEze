@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/screens/secondary/tabs_screen.dart';
 import 'package:job_eze/screens/auth/login_screen.dart';
@@ -44,9 +43,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 height: 80,
               ),
-              const Text(
-                'LOGO',
-                style: TextStyle(fontFamily: 'poppins', fontSize: 30),
+              Image.asset(
+                'assets/images/Screenshot_2023-09-23_195743-removebg-preview.png',
+                height: 70,
+                width: 70,
               ),
               const SizedBox(
                 height: 20,
@@ -217,9 +217,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   }
                 },
                 child: Container(
-                  decoration: BoxDecoration(
-                      color: greenColor,
-                      borderRadius: const BorderRadius.all(Radius.circular(5))),
+                  decoration: const BoxDecoration(
+                      color: Color(0xFF005AE2),
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                     child: Text(
@@ -247,12 +247,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           CupertinoPageRoute(
                               builder: (context) => const LoginScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(
-                          color: greenColor,
+                          color: Color(0xFF005AE2),
                           fontFamily: 'poppins',
-                          fontSize: 16),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                   )
                 ],

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/screens/secondary/tabs_screen.dart';
 import 'package:job_eze/screens/auth/register_screen.dart';
 import 'package:job_eze/widgets/input_field.dart';
+import 'package:job_eze/widgets/sign_in_methods_widget.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,22 +34,48 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
-              height: 45,
-            ),
-            const Text(
-              'LOGO',
-              style: TextStyle(fontFamily: 'poppins', fontSize: 30),
+              height: 70,
             ),
             Image.asset(
-              'assets/images/green.jpg',
-              width: size.width * 318,
-              height: size.height * .400,
+              'assets/images/Screenshot_2023-09-23_195743-removebg-preview.png',
+              height: 70,
+              width: 70,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 200),
+              child: Text(
+                textAlign: TextAlign.start,
+                'Login',
+                style: TextStyle(
+                    fontFamily: 'poppins',
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Text(
+                'Login to continue using the app',
+                style: TextStyle(
+                    fontFamily: 'poppins',
+                    fontSize: 14,
+                    color: secondaryFont,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 25,
             ),
             Form(
               child: Column(
@@ -57,7 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: EdgeInsets.only(left: 65, bottom: 10),
                     child: Text(
                       'Email',
-                      style: TextStyle(fontFamily: 'poppins'),
+                      style: TextStyle(
+                          fontFamily: 'poppins', fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -79,13 +108,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 8,
                   ),
                   const Padding(
                     padding: EdgeInsets.only(left: 65, bottom: 10),
                     child: Text(
                       'Password',
-                      style: TextStyle(fontFamily: 'poppins'),
+                      style: TextStyle(
+                          fontFamily: 'poppins', fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -144,23 +174,78 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                         child: Container(
-                          decoration: BoxDecoration(
-                              color: greenColor,
+                          decoration: const BoxDecoration(
+                              color: Color(0xFF0056DD),
                               borderRadius:
-                                  const BorderRadius.all(Radius.circular(5))),
+                                  BorderRadius.all(Radius.circular(15))),
                           child: const Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 40, vertical: 10),
+                                horizontal: 130, vertical: 13),
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                  color: Colors.white, fontFamily: 'poppins'),
+                                  color: Colors.white,
+                                  fontFamily: 'poppins',
+                                  fontSize: 15),
                             ),
                           ),
                         ),
                       ),
                       const SizedBox(
                         height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            const Expanded(
+                                child: Divider(
+                              thickness: .3,
+                            )),
+                            Text(
+                              '  Or login With   ',
+                              style: TextStyle(
+                                  fontFamily: 'poppins',
+                                  color: mainFont.withOpacity(.8)),
+                            ),
+                            const Expanded(
+                                child: Divider(
+                              thickness: .3,
+                            ))
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 55),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SignInMethods(
+                              imageSocial:
+                                  'assets/images/Screenshot_2023-09-24_185723-removebg-preview.png',
+                              height: 40,
+                              width: 40,
+                            ),
+                            SignInMethods(
+                              imageSocial:
+                                  'assets/images/Google_Icons-09-512.webp',
+                              width: 40,
+                              height: 40,
+                            ),
+                            SignInMethods(
+                              imageSocial:
+                                  'assets/images/images-removebg-preview.png',
+                              width: 45,
+                              height: 45,
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 55,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -179,13 +264,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                     CupertinoPageRoute(
                                         builder: (context) =>
                                             const RegisterScreen()));
+                                emailController.clear();
+                                passwordController.clear();
                               },
-                              child: Text(
+                              child: const Text(
                                 'Sign Up',
                                 style: TextStyle(
-                                    color: greenColor,
+                                    color: Color(0xFF0056DD),
                                     fontFamily: 'poppins',
-                                    fontSize: 16),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
                               ))
                         ],
                       )
