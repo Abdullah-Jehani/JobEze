@@ -128,12 +128,16 @@ class _CustomJobWidgetState extends State<CustomJobWidget> {
                                                     .jobModel.location.length,
                                           ),
                                           style: TextStyle(
-                                            color: themeConsumer.currentTheme
-                                                ? purpleColor
-                                                : const Color(0xFF808080),
-                                            fontFamily: 'poppins',
-                                            fontSize: 12,
-                                          ),
+                                              color: themeConsumer.currentTheme
+                                                  ? const Color.fromARGB(
+                                                      255, 103, 16, 119)
+                                                  : const Color(0xFF808080),
+                                              fontFamily: 'poppins',
+                                              fontSize: 12,
+                                              fontWeight:
+                                                  themeConsumer.currentTheme
+                                                      ? FontWeight.bold
+                                                      : FontWeight.normal),
                                         ),
                                       ],
                                     ),

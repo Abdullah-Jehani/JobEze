@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:job_eze/providers/auth_provider.dart';
 import 'package:job_eze/providers/job_provider.dart';
 import 'package:job_eze/providers/theme_provider.dart';
-import 'package:job_eze/providers/user_detail_provider.dart';
-import 'package:job_eze/screens/secondary/get_started_screen.dart';
+import 'package:job_eze/screens/secondary/startingPages/get_started_screen.dart';
 import 'package:job_eze/screens/secondary/tabs_screen.dart';
 import 'package:job_eze/screens/auth/login_screen.dart';
 import 'package:job_eze/screens/auth/splash_screen.dart';
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => JobProvider()),
-        ChangeNotifierProvider(create: (context) => UserDetailProvider()),
         ChangeNotifierProvider(create: (context) => ThemeProvider())
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeConsumer, child) {
@@ -67,6 +65,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
     Provider.of<AuthProvider>(context, listen: false).initAuthentication();
     Provider.of<JobProvider>(context, listen: false).fetchJobs();
     Provider.of<AuthProvider>(context, listen: false).getUser();
+
     super.initState();
   }
 

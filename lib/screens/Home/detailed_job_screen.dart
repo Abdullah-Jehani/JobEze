@@ -10,7 +10,6 @@ import 'package:job_eze/helpers/color_helper.dart';
 import 'package:job_eze/models/job_model.dart';
 import 'package:job_eze/providers/job_provider.dart';
 import 'package:job_eze/providers/theme_provider.dart';
-import 'package:job_eze/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
@@ -32,6 +31,13 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
     super.initState();
   }
 
+  bool iconColor = false;
+  toggleButton() {
+    setState(() {
+      iconColor = !iconColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<JobProvider>(builder: (context, jobConsumer, child) {
@@ -47,20 +53,13 @@ class _DetailedJobScreenState extends State<DetailedJobScreen> {
               ),
               centerTitle: true,
               actions: [
-                CustomIconButton(
-                    icon: const Icon(Icons.favorite),
-                    color:
-                        const Color.fromARGB(255, 226, 16, 1).withOpacity(.9),
-                    onpressed: () {}),
+                IconButton(
+                  onPressed: toggleButton,
+                  icon: const Icon(Icons.favorite),
+                  color: iconColor ? Colors.red : Colors.grey,
+                )
               ],
             ),
-            // body: GridView.builder(
-            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //         crossAxisCount: 1),
-            //     itemBuilder: (context, index) {
-            //       return CustomDetail(jobModel: jobConsumer.jobs[index]);
-            //     }),
-
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

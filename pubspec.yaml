@@ -87,7 +87,9 @@ flutter:
   fonts:
     - family: poppins
       fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
         - asset: assets/fonts/Poppins-Regular.ttf
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

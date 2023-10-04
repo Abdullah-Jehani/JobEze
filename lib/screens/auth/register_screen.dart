@@ -231,7 +231,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 30, horizontal: 0),
+                          vertical: 20, horizontal: 0),
                       child: TextButton(
                         onPressed: () {
                           validator();
@@ -289,7 +289,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Get your Carrer Started',
+                          'Already Have an account ?',
                           style: TextStyle(
                               fontFamily: 'poppins',
                               fontWeight: FontWeight.normal,
